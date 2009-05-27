@@ -1,0 +1,7 @@
+!|EnvironmentScenario|Relaxing/Too Cold|
+|Minute|Temp|Heater?|Blower?|Cooler?|
+|0|75|-|X|X|
+|1|70|-|-|-|
+|2|65|X|X|-|
+|3|75|-|X|-|
+|4|75|-|X|X|

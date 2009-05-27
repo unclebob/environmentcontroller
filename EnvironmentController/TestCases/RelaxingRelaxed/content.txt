@@ -1,0 +1,7 @@
+!|EnvironmentScenario|Relaxing/Relaxed|
+|Minute|Temp|Heater?|Blower?|Cooler?|
+|0|75|-|X|X|
+|1|70|-|-|-|
+|3|75|-|X|-|
+|4|70|-|-|-|
+|5|75|-|X|X|

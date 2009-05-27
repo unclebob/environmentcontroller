@@ -1,0 +1,6 @@
+!|EnvironmentScenario|Cooling/Comfortable|
+|Minute|Temp|Heater?|Blower?|Cooler?|
+|0|75|-|X|X|
+|1|70|-|-|-|
+|3|75|-|X|-|
+|4|75|-|X|X|

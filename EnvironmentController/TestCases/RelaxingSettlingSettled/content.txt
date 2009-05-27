@@ -1,0 +1,7 @@
+!|EnvironmentScenario|Relaxing & Settling/Settled|
+|Minute|Temp|Heater?|Blower?|Cooler?|
+|0|75|-|X|X|
+|1|65|X|X|-|
+|2|70|-|X|-|
+|6|70|-|X|-|
+|7|70|-|-|-|

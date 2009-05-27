@@ -1,0 +1,4 @@
+!|EnvironmentScenario|Idle/Too Hot|
+|Minute|Temp|Heater?|Blower?|Cooler?|
+|0|70|-|-|-|
+|1|75|-|X|X|

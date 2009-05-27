@@ -1,0 +1,70 @@
+!contents -g -p -f -h
+This is the Environment Controller Project
+!path fitnesse.jar
+!path /Users/unclebob/projects/EnvironmentController/classes/production/EnvironmentController
+!define TEST_SYSTEM {slim}
+
+!3 Requirements
+The Environment Controller keeps a computer room within a closely controlled temperature range by using both a heater and a cooler.
+ * The temperature must never deviate more than 5 degrees from 70F.
+ * If the temperature is ever more than 10 degrees away from 70F then the appropriate Hi or Lo alarm must sound.
+ * When the heater is on, the blower must be on.
+ * When the cooler is on, the blower must be on.
+ * The blower must continue to run for 5 minutes after the heater is turned off
+  * Because the heat exchanger has latent heat that must not be allowed to accumulate lest it melt the sensitive vanes.
+ * The cooler must not be turned on within 3 minutes of being turned off
+  * Because the freon must be given time to recondense lest the compressor vapor lock.
+
+!3 Finite State Machine for Environment Controller
+ * Settling = The time that the blower must be on in order to cool down the heat exchanger
+ * Relaxing = The time the compressor must remain off to prevent vapor lock
+
+|State|Event|Next State|
+|Idle|Too Hot|Cooling|
+||Too Cold|Heating|
+||Comfortable|-|
+||Relaxed|-|
+||Settled|-|
+||
+|Heating|Too Hot|Cooling + Settling|
+||Too Cold|-|
+||Comfortable|Settling|
+||Relaxed|-|
+||Settled|-|
+||
+|Cooling|Too Hot|-|
+||Too Cold|Heating + Relaxing|
+||Comfortable|Relaxing|
+||Relaxed|-|
+||Settled|-|
+||
+|Relaxing|Too Hot|-|
+||Too Cold|Heating + Relaxing|
+||Comfortable|-|
+||Relaxed|Idle|
+||Settled|-|
+||
+|Settling|Too Hot|Cooling + Settling|
+||Too Cold|Heating|
+||Comfortable|-|
+||Relaxed|-|
+||Settled|Idle|
+||
+|Cooling + Settling|Too Hot|-|
+||Too Cold|Heating + Relaxing|
+||Comfortable|Relaxing + Settling|
+||Relaxed|-|
+||Settled|Cooling|
+||
+|Heating + Relaxing|Too Hot|Relaxing|
+||Too Cold|-|
+||Comfortable|Relaxing + Settling|
+||Relaxed|Heating|
+||Settled|-|
+||
+|Relaxing + Settling|Too Hot||
+||Too Cold|Heating + Relaxing|
+||Comfortable|-|
+||Relaxed|Settling|
+||Settled|Relaxing|
+

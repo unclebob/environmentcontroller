@@ -1,0 +1,7 @@
+!|EnvironmentScenario|Cooling & Settling/Too Cold|
+|Minute|Temp|Heater?|Blower?|Cooler?|
+|0|65|X|X|-|
+|1|75|-|X|X|
+|2|65|X|X|-|
+|4|75|-|X|-|
+|5|75|-|X|X|
