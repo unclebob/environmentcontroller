@@ -56,7 +56,7 @@ public class EnvironmentController {
     return temp <= coldAlarm;
   }
 
-  public void tic() {
+  public void regulate() {
     decrementTimers();
     int temp = hw.getTemp();
     if (isTooHot(temp)) {

@@ -158,7 +158,7 @@ public class EnvironmentControllerTest {
     tooCold();
     comfortable();
     delayAndCheck(BLOWER_DELAY - 1, "hBchl");
-    controller.tic();
+    controller.regulate();
     assertState("hbchl");
   }
 
@@ -173,33 +173,33 @@ public class EnvironmentControllerTest {
   private void delayAndCheck(int delay, String state) {
     for (int i = 0; i < delay; i++) {
       assertState(state);
-      controller.tic();
+      controller.regulate();
     }
   }
 
   private void comfortable() {
     hw.setTemp(COMFORTABLE);
-    controller.tic();
+    controller.regulate();
   }
 
   private void tooHot() {
     hw.setTemp(TOO_HOT);
-    controller.tic();
+    controller.regulate();
   }
 
   private void tooCold() {
     hw.setTemp(TOO_COLD);
-    controller.tic();
+    controller.regulate();
   }
 
   private void wayTooHot() {
     hw.setTemp(WAY_TOO_HOT);
-    controller.tic();
+    controller.regulate();
   }
 
   private void wayTooCold() {
     hw.setTemp(WAY_TOO_COLD);
-    controller.tic();
+    controller.regulate();
   }
 
   private void assertState(String state) {
